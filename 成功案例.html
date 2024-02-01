@@ -146,6 +146,11 @@
             transition: height 2.5s ease-in-out;
         }
 
+        .page01 .timeLine .line.active{
+            height: 40px;
+            transition: height 2.5s ease-in-out;
+        }
+
         .page01 .timeline02 {
             top: 59%;
         }
@@ -360,7 +365,7 @@
                 <p>直播試玩</p>
             </div>
             <div class="timeLine timeline01">
-                <div class="line"></div>
+                <div class="line active"></div>
             </div>
             <div class="timeLine timeline02">
                 <div class="line"></div>
@@ -385,10 +390,10 @@
         // effect:"fade",
         mousewheel: true,
         freeMode: true,
-        // autoplay: {
-        //     delay: 2500,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -410,7 +415,7 @@
         // 根据索引值为相应的 .contentBox 添加类名
         addClassNameToContentBox(activeIndex);
 
-        updateTimelineHeight(activeIndex);
+       
     });
 
     function removeAllClassNames() {
@@ -420,29 +425,9 @@
         });
     }
 
-    $(document).ready(function () {
-        var container = $('#container');
-        var object1 = $('#object1');
-        var object2 = $('#object2');
-        var progress = $('#progress');
 
-        $(window).scroll(function () {
-            var containerHeight = container.height();
-            var windowHeight = $(window).height();
-            var scrollDistance = $(document).height() - windowHeight;
-            var scrollPercentage = ($(window).scrollTop() / scrollDistance) * 100;
-
-            // 设置进度条宽度
-            progress.css('width', scrollPercentage + '%');
-
-            // 计算物体之间的距离
-            var distance = containerHeight - object1.height();
-
-            // 计算物体的新位置
-            var newPosition = (scrollPercentage / 100) * distance;
-            object1.css('top', newPosition + 'px');
-            object2.css('top', newPosition + 'px');
-        });
+    swiper.on('scroll', function () {
+        updateTimelineHeight(swiper.activeIndex);
     });
 
     // 根据索引值为相应的 .contentBox 添加类名的函数
@@ -471,8 +456,8 @@
                 $(".slide01 .innerImg").addClass("animate__animated animate__fadeInUp");
             }, 100);
 
-            // $(".timeLine").removeClass("active");
-            // $(".timeline01").addClass("active");
+            $(".timeLine .line").removeClass("active");
+            $(".timeline01 .line").addClass("active");
         }
         if (index == 1) {
             // alert("2")
@@ -493,8 +478,8 @@
                 $(".slide02 .innerImg").addClass("animate__animated animate__fadeInUp");
             }, 100);
 
-            // $(".timeLine").removeClass("active");
-            // $(".timeline02").addClass("active");
+            $(".timeLine .line").removeClass("active");
+            $(".timeline02 .line").addClass("active");
         }
         if (index == 2) {
             // alert("3")
@@ -515,7 +500,7 @@
                 $(".slide03 .innerImg").addClass("animate__animated animate__fadeInUp");
             }, 100);
 
-            // $(".timeLine").removeClass("active");
+            $(".timeLine .line").removeClass("active");
         }
     }
 </script>
