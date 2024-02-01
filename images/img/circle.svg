@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="863.507" height="859.238" viewBox="0 0 863.507 859.238">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.138" y1="0.129" x2="0.878" y2="0.924" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fbf3ee"/>
+      <stop offset="0.089" stop-color="#fbf1ea"/>
+      <stop offset="1" stop-color="#ffb76d"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="1" y1="0.636" x2="0.068" y2="0.189" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fbf3ee"/>
+      <stop offset="0" stop-color="#f6f6f6"/>
+      <stop offset="1" stop-color="#ffb76d"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.705" y1="0.172" x2="0.074" y2="0.919" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffb76d"/>
+      <stop offset="1" stop-color="#fbf3ee"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_3314" data-name="Group 3314" transform="translate(-15526.378 -7955)">
+    <path id="Path_4055" data-name="Path 4055" d="M1118.175,594.693a37.877,37.877,0,0,1-6.858-31.646,384.787,384.787,0,0,0-159.492-405.5,37.953,37.953,0,0,1,42.093-63.166c.113.075.224.15.336.227A460.7,460.7,0,0,1,1185.27,580.148a37.954,37.954,0,0,1-67.095,14.545" transform="translate(15192.754 7923.597)" fill="url(#linear-gradient)"/>
+    <path id="Path_4056" data-name="Path 4056" d="M183.4,1023.621a37.872,37.872,0,0,1,30.424,11.074,384.74,384.74,0,0,0,428.029,81.331,37.948,37.948,0,0,1,30.981,69.285l-.371.164a460.641,460.641,0,0,1-512.537-97.349,37.95,37.95,0,0,1,23.476-64.505" transform="translate(15473.233 7589.781)" fill="url(#linear-gradient-2)"/>
+    <path id="Path_4057" data-name="Path 4057" d="M384.822,53.821a37.856,37.856,0,0,1-24.794,20.8A384.586,384.586,0,0,0,75.666,404.483,37.933,37.933,0,1,1,.2,396.667c.014-.134.029-.268.044-.4A460.454,460.454,0,0,1,340.719,1.256a37.934,37.934,0,0,1,44.1,52.565" transform="translate(15526.379 7955.003)" fill="url(#linear-gradient-3)"/>
+    <rect id="Rectangle_991" data-name="Rectangle 991" width="863.507" height="859.238" transform="translate(15526.379 7955)" fill="none"/>
+  </g>
+</svg>

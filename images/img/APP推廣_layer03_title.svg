@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="356.808" height="156" viewBox="0 0 356.808 156">
+  <g id="Group_3112" data-name="Group 3112" transform="translate(-124.693 -315)">
+    <path id="Path_4046" data-name="Path 4046" d="M15.29.5H242.134a14.174,14.174,0,0,1,14.173,14.173V73.5h75.827a14.174,14.174,0,0,1,14.173,14.173v45.654A14.174,14.174,0,0,1,332.134,147.5H62.48a14.174,14.174,0,0,1-14.173-14.173V74.5H14.673A14.174,14.174,0,0,1,.5,60.135l.617-45.653A14.173,14.173,0,0,1,15.29.5Z" transform="translate(134.193 322.5)" fill="#fbf3ee" stroke="#6c3625" stroke-miterlimit="10" stroke-width="2"/>
+    <g id="Group_3099" data-name="Group 3099" transform="translate(12421.193 -2886.5)">
+      <path id="Path_4040" data-name="Path 4040" d="M15.29.5H242.134a14.174,14.174,0,0,1,14.173,14.173V73.5h75.827a14.174,14.174,0,0,1,14.173,14.173v45.654A14.174,14.174,0,0,1,332.134,147.5H62.48a14.174,14.174,0,0,1-14.173-14.173V74.5H14.673A14.174,14.174,0,0,1,.5,60.135l.617-45.653A14.173,14.173,0,0,1,15.29.5Z" transform="translate(-12296 3202)" fill="#fbf3ee" stroke="#6c3625" stroke-miterlimit="10" stroke-width="2"/>
+      <g id="Group_3098" data-name="Group 3098" transform="translate(2 -2)">
+        <text id="多元的結算方式" transform="translate(-12230 3326)" fill="#86533e" font-size="36" font-family="YuGothicUI-Bold, Yu Gothic UI" letter-spacing="0.02em" font-weight="700"><tspan x="0" y="0">多元的結算方式</tspan></text>
+        <text id="CPI_CPS_CPA" data-name="CPI/CPS/CPA" transform="translate(-12275 3251)" fill="#86533e" font-size="32" font-family="SegoeUI-Bold, Segoe UI" letter-spacing="0.02em" font-weight="700"><tspan x="0" y="0">CPI/CPS/CPA</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

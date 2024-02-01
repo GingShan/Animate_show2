@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="351.998" height="97" viewBox="0 0 351.998 97">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_150" data-name="Rectangle 150" width="23.142" height="25.365" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2088" data-name="Group 2088" transform="translate(-1038.841 -300.28)">
+    <g id="Group_1015" data-name="Group 1015" transform="translate(1038.841 300.28)">
+      <g id="Group_1005" data-name="Group 1005" transform="translate(0)">
+        <g id="Rectangle_133" data-name="Rectangle 133" transform="translate(9.652 8)" fill="#fbf3ee" stroke="#6c3625" stroke-width="2">
+          <rect width="335.115" height="74" rx="15" stroke="none"/>
+          <rect x="1" y="1" width="333.115" height="72" rx="14" fill="none"/>
+        </g>
+        <g id="Rectangle_134" data-name="Rectangle 134" fill="#fbf3ee" stroke="#6c3625" stroke-width="2">
+          <rect width="337.747" height="74" rx="15" stroke="none"/>
+          <rect x="1" y="1" width="335.747" height="72" rx="14" fill="none"/>
+        </g>
+        <text id="海外APP渠道推廣" transform="translate(21.829 50)" fill="#86533e" font-size="36" font-family="YuGothicUI-Bold, Yu Gothic UI" letter-spacing="0.02em" font-weight="700"><tspan x="0" y="0">海外</tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI">APP</tspan><tspan y="0">渠道推廣</tspan></text>
+      </g>
+    </g>
+    <g id="Group_1049" data-name="Group 1049" transform="translate(1367.697 371.915)">
+      <g id="Group_1048" data-name="Group 1048" transform="translate(0)" clip-path="url(#clip-path)">
+        <path id="Path_191" data-name="Path 191" d="M.061,3.564,3.119,18.6A2.969,2.969,0,0,0,8,20.232l3.386-3L17.63,24.3a3.151,3.151,0,1,0,4.721-4.176L16.1,13.062l3.386-3a2.969,2.969,0,0,0-1.025-5.039L3.913.157A2.969,2.969,0,0,0,.061,3.564" transform="translate(0 0)" fill="#86533e"/>
+      </g>
+    </g>
+  </g>
+</svg>
