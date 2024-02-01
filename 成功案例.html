@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP ScrollTrigger Demo</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'
+        integrity='sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=='
+        crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        body {
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        p,
+        span {
+            font-size: 1rem;
+            margin: 0;
+            line-height: 180%;
+            display: block;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #FBF1EB;
+        }
+
+        .page01 {
+            display: flex;
+            align-items: center;
+        }
+
+        .circle {
+            position: absolute;
+            top: 5%;
+            right: 9.5%;
+            width: 45.7%;
+            transition: transform 1s linear;
+            transform-origin: center center;
+        }
+
+        .swiper {
+            width: 75%;
+            margin: 0 auto;
+            height: 80vh;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide .row {
+            justify-content: space-between;
+            align-items: center;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+        }
+
+        .swiper-slide .innerImg {
+            width: 100%;
+            padding-top: 77%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page01 .paginationArea {
+            width: 30vw;
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            display: flex;
+            align-items: center;
+        }
+
+        .paginationArea .paginationTxt {
+            height: 18vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 3%;
+        }
+
+        .paginationArea .paginationTxt p {
+            font-size: 1rem;
+            line-height: 100%;
+            font-weight: bolder;
+            letter-spacing: 1px;
+            color: rgba(232, 141, 98, .5);
+        }
+
+        .paginationArea .paginationTxt p.active {
+            color: rgba(232, 141, 98, 1);
+        }
+
+        .page01 .swiper-pagination {
+            position: relative;
+            top: unset;
+            left: unset;
+            right: unset;
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: unset;
+        }
+
+        .page01 .timeLine {
+            position: absolute;
+            top: 19%;
+            left: 2%;
+            width: 2px;
+            height: 40px;
+            background-color: rgba(232, 141, 98, .5);
+            transition: height 2.5s ease-in-out;
+            overflow: hidden;
+        }
+
+        .page01 .timeLine .line {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 2px;
+            height: 0px;
+            background-color: rgba(232, 141, 98, 1);
+            z-index: 2;
+            transition: height 2.5s ease-in-out;
+        }
+
+        .page01 .timeline02 {
+            top: 59%;
+        }
+
+        .swiper-pagination-bullet {
+            width: 25px;
+            height: 25px;
+            background-color: rgba(232, 141, 98, .5);
+            transition: height 2.5s ease-in-out;
+        }
+
+        .swiper-pagination-bullet::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 46%;
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/img/btn_plate02.svg);
+            transform: translate(-50%, -50%);
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+
+        /* .swiper-pagination-bullet::after {
+            display: block;
+            content: '';
+            width: 2px;
+            height: 40px;
+            background-color: rgba(232, 141, 98, 1);
+            margin: 120% auto;
+        } */
+
+        .swiper-pagination-bullet:nth-child(3)::after {
+            content: unset;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: rgba(232, 141, 98, 1);
+        }
+
+        .swiper-scrollbar::before {
+            content: 'SCROLL';
+            writing-mode: vertical-rl;
+            font-size: 1rem;
+            color: #E88D62;
+            font-weight: bolder;
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .swiper-scrollbar.swiper-scrollbar-vertical,
+        .swiper-vertical>.swiper-scrollbar {
+            height: 20vh;
+            top: 50%;
+            right: 2%;
+            transform: translateY(-50%);
+            background-color: rgba(232, 141, 98, 1);
+        }
+
+        .swiper-scrollbar-drag {
+            width: 25px !important;
+            height: 25px !important;
+            border-radius: 100%;
+            background-color: rgba(232, 141, 98, 1);
+            margin-left: -260%;
+        }
+
+        .swiper-scrollbar-drag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 46%;
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/img/btn_plate02.svg);
+            transform: translate(-50%, -50%);
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+
+        .textArea .txtTitle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10%;
+        }
+
+        .textArea .txtTitle .top,
+        .textArea .txtTitle .bottom {
+            background-color: #86533E;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 100%;
+            letter-spacing: 2px;
+            padding: 15px 15px;
+        }
+
+        .textArea .txtTitle .bottom {
+            margin-left: 8%;
+        }
+
+        .textArea .content {
+            padding-left: 8%;
+        }
+
+        .textArea .content .case .caseIcon {
+            display: inline;
+            width: 3vw;
+            margin-top: -5%;
+            margin-left: 1%;
+        }
+
+        .swiper-slide:nth-child(3) .textArea .content .case .caseIcon {
+            width: 8vw;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page page01">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide01">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="textArea">
+                                    <div class="txtTitle animate__animated animate__fadeInUp">
+                                        <div class="top">部分優秀遊戲</div>
+                                        <div class="bottom">遊戲預熱後快速進入GP排行榜</div>
+                                    </div>
+                                    <div class="content animate__animated animate__fadeInUp">
+                                        <p class="case">
+                                            平台：<img class="caseIcon" src="./images/img/youtube.svg" alt="" />
+                                            ​</p>
+                                        <span>地區：北美／東南亞／中東​</span>
+                                        <span>曝光：千萬級</span>
+                                        <span>CPM：最低$1.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="innerImg animate__animated animate__fadeInUp"
+                                    style="background-image: url(./images/img/成功01.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide slide02">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="textArea">
+                                    <div class="txtTitle">
+                                        <div class="top">時尚化妝-電子商務</div>
+                                    </div>
+                                    <div class="content">
+                                        <p class="case">
+                                            平台：<img class="caseIcon" src="./images/img/youtube.svg" alt="" />
+                                            ​</p>
+                                        <span>地區：韓國／越南／印尼​​</span>
+                                        <span>執行策略：通過20+網紅聯動直播化妝教程，以及產品推薦，直接帶來⼤量的訂單轉化。</span>
+                                        <span>營銷效果：訂單增長1200+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="innerImg" style="background-image: url(./images/img/成功02.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide slide03">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="textArea">
+                                    <div class="txtTitle">
+                                        <div class="top">直播試玩｜獎勵下載</div>
+                                    </div>
+                                    <div class="content">
+                                        <p class="case">
+                                            平台：<img class="caseIcon" src="./images/img/youtube&tiktok.svg" alt="" />
+                                        </p>
+                                        <span>地區：韓國／越南／印尼​</span>
+                                        <span>執行策略：請影響者分發遊戲內獎勵的代碼，並邀請他們的​追隨者參加由品牌官方帳戶主辦的贈品，誘導下載。</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="innerImg" style="background-image: url(./images/img/成功03.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="circle">
+            <img src="./images/img/circle.svg" alt="" style="width: 100%;" />
+        </div>
+        <div class="paginationArea">
+            <div class="swiper-pagination">
+            </div>
+            <div class="paginationTxt">
+                <p class="active">遊戲類型</p>
+                <p>電子商務</p>
+                <p>直播試玩</p>
+            </div>
+            <div class="timeLine timeline01">
+                <div class="line"></div>
+            </div>
+            <div class="timeLine timeline02">
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="swiper-scrollbar"></div>
+    </section>
+    <section class="page page02"></section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.js'
+    integrity='sha512-ipBeSMCnlAvS4AEbycy0nTk9KkYr5lUJwFHNvf4IxtV/CDW4qx53mZKUryWtNr6GFaBl11EXyrU6iE3mo6ib2g=='
+    crossorigin='anonymous'></script>
+<!-- 引入 Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        // effect:"fade",
+        mousewheel: true,
+        freeMode: true,
+        // autoplay: {
+        //     delay: 2500,
+        //     disableOnInteraction: false,
+        // },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: false,
+            dragSize: 'auto',
+        },
+
+    });
+    swiper.on('slideChange', function () {
+        // 获取当前活动滑块的索引
+        var activeIndex = swiper.activeIndex;
+
+        // 移除所有 .contentBox 的类名
+        removeAllClassNames();
+
+        // 根据索引值为相应的 .contentBox 添加类名
+        addClassNameToContentBox(activeIndex);
+
+        updateTimelineHeight(activeIndex);
+    });
+
+    function removeAllClassNames() {
+        var contentBoxes = document.querySelectorAll('.paginationTxt p');
+        contentBoxes.forEach(function (box) {
+            box.classList.remove('active'); // 将 'active' 替换为你希望添加的类名
+        });
+    }
+
+    $(document).ready(function () {
+        var container = $('#container');
+        var object1 = $('#object1');
+        var object2 = $('#object2');
+        var progress = $('#progress');
+
+        $(window).scroll(function () {
+            var containerHeight = container.height();
+            var windowHeight = $(window).height();
+            var scrollDistance = $(document).height() - windowHeight;
+            var scrollPercentage = ($(window).scrollTop() / scrollDistance) * 100;
+
+            // 设置进度条宽度
+            progress.css('width', scrollPercentage + '%');
+
+            // 计算物体之间的距离
+            var distance = containerHeight - object1.height();
+
+            // 计算物体的新位置
+            var newPosition = (scrollPercentage / 100) * distance;
+            object1.css('top', newPosition + 'px');
+            object2.css('top', newPosition + 'px');
+        });
+    });
+
+    // 根据索引值为相应的 .contentBox 添加类名的函数
+    function addClassNameToContentBox(index) {
+        var contentBoxes = document.querySelectorAll('.paginationTxt p');
+        if (contentBoxes.length > index) {
+            contentBoxes[index].classList.add('active'); // 将 'active' 替换为你希望添加的类名
+        }
+
+
+        if (index == 0) {
+            $(".circle").css({
+                transform: "rotate(0deg)"
+            });
+            $(".swiper-scrollbar-drag").css({
+                transform: "translate3d(0px, 0px, 0px)"
+            });
+
+            $(".swiper-slide .txtTitle").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .content").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .innerImg").removeClass("animate__animated animate__fadeInUp");
+
+            setTimeout(() => {
+                $(".slide01 .txtTitle").addClass("animate__animated animate__fadeInUp");
+                $(".slide01 .content").addClass("animate__animated animate__fadeInUp");
+                $(".slide01 .innerImg").addClass("animate__animated animate__fadeInUp");
+            }, 100);
+
+            // $(".timeLine").removeClass("active");
+            // $(".timeline01").addClass("active");
+        }
+        if (index == 1) {
+            // alert("2")
+            $(".circle").css({
+                transform: "rotate(45deg)"
+            });
+            $(".swiper-scrollbar-drag").css({
+                transform: "translate3d(0px, 80px, 0px)"
+            });
+
+            $(".swiper-slide .txtTitle").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .content").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .innerImg").removeClass("animate__animated animate__fadeInUp");
+
+            setTimeout(() => {
+                $(".slide02 .txtTitle").addClass("animate__animated animate__fadeInUp");
+                $(".slide02 .content").addClass("animate__animated animate__fadeInUp");
+                $(".slide02 .innerImg").addClass("animate__animated animate__fadeInUp");
+            }, 100);
+
+            // $(".timeLine").removeClass("active");
+            // $(".timeline02").addClass("active");
+        }
+        if (index == 2) {
+            // alert("3")
+            $(".circle").css({
+                transform: "rotate(90deg)"
+            });
+            $(".swiper-scrollbar-drag").css({
+                transform: "translate3d(0px, 170px, 0px)"
+            });
+
+            $(".swiper-slide .txtTitle").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .content").removeClass("animate__animated animate__fadeInUp");
+            $(".swiper-slide .innerImg").removeClass("animate__animated animate__fadeInUp");
+
+            setTimeout(() => {
+                $(".slide03 .txtTitle").addClass("animate__animated animate__fadeInUp");
+                $(".slide03 .content").addClass("animate__animated animate__fadeInUp");
+                $(".slide03 .innerImg").addClass("animate__animated animate__fadeInUp");
+            }, 100);
+
+            // $(".timeLine").removeClass("active");
+        }
+    }
+</script>
+
+</html>

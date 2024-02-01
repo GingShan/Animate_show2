@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        p,
+        span {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 100%;
+            display: block;
+        }
+
+        section {
+            overflow: hidden;
+        }
+
+        .page02 {
+            min-height: 100vh;
+        }
+
+        .page02::after {
+            content: '';
+            position: absolute;
+            bottom: -8%;
+            right: -5%;
+            width: 58vw;
+            height: 96vh;
+            background-image: url(./images/img/Path\ 4060.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            z-index: -1;
+        }
+
+        .textArea {
+            position: absolute;
+            top: 8%;
+            left: 4%;
+            width: 20vw;
+        }
+
+        .textArea .title {
+            width: 10vw;
+            margin-bottom: 6%;
+        }
+
+        .contentArea .content {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+        }
+
+        .contentArea .content p {
+            font-size: 1.2rem;
+            margin-bottom: 7%;
+        }
+
+        .contentArea .content p::before {
+            content: '';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-image: url(./images/img/webLink_plate.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            margin-right: 5%;
+        }
+
+        .con02 {
+            display: none;
+            z-index: -1;
+        }
+
+        .picArea{
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            width: 60%;
+        }
+
+        .page02 .bg {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #FFB76D;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page page02">
+        <div class="textArea">
+            <h1 class="title">
+                <img src="./images/img/廣告形式.svg" alt="" style="width: 100%;" />
+            </h1>
+            <div class="contentArea">
+                <div class="content con01 row">
+                    <div class="col-lg-6">
+                        <p>YouTube</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>APP廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>展示廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>​搜尋廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>精品欄廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>視頻示廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>圖片廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>輪播廣告</p>
+                    </div>
+                </div>
+                <div class="content con02 row">
+                    <div class="col-lg-6">
+                        <p>點擊廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>​獎勵廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>遊戲廣告</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>APP下載</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>信息流</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>​開屏</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>挑戰賽</p>
+                    </div>
+                    <div class="col-lg-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="picArea">
+            <img src="./images/img/支持廣告透背.png" alt="" style="width: 100%;" />
+        </div>
+        <div class="bg"></div>
+    </section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script>
+    $(function () {
+        let tl02 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".page02",
+                pin: true,
+                start: 'top top',
+                scrub: 0.3,
+                markers: false
+            }
+        })
+
+        
+        tl02.to('.con01', {
+            display: "none",
+            "z-index": "-1"
+        },"-=0.3")
+        tl02.to('.con02', {
+            display: "flex",
+            "z-index": "1"
+        }, "<")
+        tl02.to('.picArea',{
+            top:'-52%'
+        }, "-=0.3")
+        tl02.to('.bg', {
+            'background-color': "#FE9F4D"
+        }, "-=0.4")
+    })
+</script>
+
+</html>

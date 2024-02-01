@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+            /* border: 1px solid red; */
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menuBar.barSlide {
+            width: 6%;
+            position: fixed;
+            top: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 100%;
+            background-color: #fff;
+            border: 3px solid #FFD5A8;
+            filter: drop-shadow(0px 6px rgb(239, 167, 89));
+            padding: 40px 0%;
+            transition: all 2s ease-in-out;
+            z-index: 999;
+        }
+
+        .menuBar {
+            width: 80%;
+            height: 104px;
+            position: fixed;
+            top: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+            background-color: #fff;
+            border: 3px solid #FFD5A8;
+            filter: drop-shadow(0px 6px rgb(239, 167, 89));
+            padding: 40px 0% 40px 0%;
+            transition: all 2s ease-in-out;
+            z-index: 999;
+        }
+
+        .menuBar.barMove {
+            left: 5%;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+
+        }
+
+        .linkArea.close {
+            display: none !important;
+        }
+
+        .pagelink::before {
+            content: '';
+            position: absolute;
+            top: -120%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 25px;
+            background-image: url(./images/img/link_plate.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+
+        .pagelink:hover::before {
+            opacity: 1;
+            transition: all .5s ease-in-out;
+        }
+
+        .nav-item {
+            width: calc(100% / 7);
+            text-align: center;
+        }
+
+        .nav-item .lang {
+            margin: 0% 5%;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center center;
+            transform: translate(-50%, -50%);
+            width: 4.5vw;
+            z-index: 10;
+            transition: all 1s ease-in-out;
+        }
+
+        .page {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menuBar">
+        <ul class="navbar-nav">
+            <a href="###" class="logo">
+                <img src="./images/img/logo.svg" alt="" style="width: 100%;" />
+            </a>
+            <li class="nav-item linkArea">
+                <a href="###" class="pagelink">
+                    企業網路專案
+                </a>
+            </li>
+            <li class="nav-item linkArea">
+                <a href="###" class="pagelink">
+                    網路設計概念
+                </a>
+            </li>
+            <li class="nav-item linkArea">
+                <a href="###" class="pagelink">
+                    APP推廣服務
+                </a>
+            </li>
+            <li class="nav-item logoArea"></li>
+            <li class="nav-item linkArea">
+                <a href="###" class="pagelink">
+                    KOL網紅營銷
+                </a>
+            </li>
+            <li class="nav-item linkArea">
+                <a href="###" class="pagelink">
+                    推廣帳號管理
+                </a>
+            </li>
+            <li class="nav-item linkArea langChange">
+                <a href="###" class="lang CH">CH</a>
+                <a href="###" class="lang EN">EN</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="page page01"></section>
+    <section class="page page02"></section>
+    <section class="page page03"></section>
+    <section class="page page04"></section>
+    <section class="page page05"></section>
+
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+</script>
+<script>
+    $(function () {
+        var isMenuClosed = false;
+
+        $(".logo").click(() => {
+            $(".menuBar").removeClass("barSlide barMove");
+            $(".logo img").attr("src", "./images/img/logo.svg");
+            $(".logo").css({
+                width: "4.5vw"
+            });
+            setTimeout(() => {
+                $(".linkArea").removeClass("close");
+            }, 2000);
+            isMenuClosed = false;
+        });
+
+        $(window).scroll(function () {
+            var scrollVal = $(this).scrollTop();
+            var bannerHeight = $(".page01").outerHeight();
+
+            if (scrollVal <= bannerHeight) {
+                if (isMenuClosed) {
+                    $(".menuBar").removeClass("barSlide barMove");
+                    $(".logo img").attr("src", "./images/img/logo.svg");
+                    $(".logo").css({
+                        width: "4.5vw"
+                    });
+                    setTimeout(() => {
+                        $(".linkArea").removeClass("close");
+                    }, 2000);
+                    isMenuClosed = false;
+                }
+            } else {
+                if (!isMenuClosed) {
+                    $(".linkArea").addClass("close");
+                    $(".menuBar").addClass("barSlide barMove");
+                    $(".logo img").attr("src", "./images/img/logo_close.svg");
+                    $(".logo").css({
+                        width: "5vw"
+                    });
+                    isMenuClosed = true;
+                }
+            }
+        });
+    });
+</script>
+
+</html>

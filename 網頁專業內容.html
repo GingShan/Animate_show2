@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .svgBlock {
+            width: 100%;
+            height: 300vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+            background-color: #FBF3EE;
+            background-attachment: fixed;
+        }
+
+        .svgBlock::after {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/img/企業網站專案-視差滾動_plate.svg);
+            background-repeat: repeat-y;
+            background-size: cover;
+            background-position: top;
+            z-index: -1;
+        }
+
+        svg {
+            display: inline-block;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svgBlock">
+        <div class="svgPic">
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1249.301" height="2470.352" viewBox="0 0 1249.301 2470.352">
+            <path id="Path_2599" data-name="Path 2599"
+                d="M1249,0c1.455,25.323-2.5,50.665-8.4,75.416C1185.811,289.273,964.009,429.952,745.624,511.25c-43.206,16.07-87.644,30.678-132.229,43.434-22.8,6.893-59.141,16.069-82.534,22.691-33.941,9.82-67.712,20.295-100.707,32.3C285.859,661.9,128.431,745.858,62.291,875.223a256.482,256.482,0,0,0-26.413,87.585c-.358,4.763-.775,11.315-1.09,15.85.08,4.475-.1,11.5-.006,15.878,5.479,134.041,118.017,241.551,235.631,316.746,63.109,40.3,132.192,74.275,202.761,103.417,38.3,15.925,78.676,30.792,118.247,44.185,88.174,28.595,176.732,58.035,260.188,96.42,87.538,39.619,170.853,88.9,239.922,151.143,110.208,99.224,146.712,229.7,102.322,362.7-96.3,282.268-417,415.2-735.756,400.047-116.161-5.67-231.706-30.668-335.415-77.354-40.415-19.076-88.542-40.809-111.881-77.021-23.145-36.176-6.156-71.883,23.233-100.276,76.722-72.433,235.638-127.308,343.164-157.333-13.656,4.034-27.194,8.359-40.66,12.843-40.367,13.437-80.154,28.336-118.954,44.913-51.351,22.131-102.191,46.71-146.105,78.98-37.6,27.884-80.382,71.493-50.511,115.841,22.377,33.329,70.014,53.638,108.116,70.885,115.392,49.539,244.5,72.746,372.678,71.973,217.421-.915,446.11-75.126,576.952-233.28,127.9-156.2,153.424-349.171-8.732-494.586-4.23-3.684-18.106-15.534-22.661-19.478-8.931-7-18.52-14.777-27.7-21.594-11.314-8.132-25.653-18.563-37.395-26-5.26-3.489-11.8-7.9-17.1-11.037-6.934-4.138-19.647-12.161-26.29-15.832-4.473-2.563-13.431-7.554-17.9-10.1-5.155-3.127-21.543-11.471-27.3-14.563-9.937-5.354-26.733-13.254-37.134-18.416-6.844-3.169-21.918-10.035-28.39-13.026-5.674-2.428-22.771-9.86-28.776-12.425-51.547-21.561-104.614-40.747-158.038-58.475-19.022-6.289-52.43-17.031-70.967-23.456-70.74-24.413-140.979-52.577-207.009-85.7C192.192,1309.477,3.116,1168.036,7.554,980.308l.029-2.471c.034-.824.118-1.646.175-2.469l.383-4.935.775-9.867,1.427-9.809.72-4.9C24.6,866.1,76.691,795.1,142.685,740.695c85.212-70.488,190.989-119.158,299.78-155.332,45.81-15.536,97.406-28.827,144.615-40.882,51.325-13.605,102.372-29.165,152.062-46.867,217.456-77.5,438.873-212.579,499.14-422.661C1244.86,50.429,1249.592,25.268,1249,0"
+                transform="translate(0 -0.003)" fill="none" stroke="#ffb76d" />
+        </svg>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+        integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+        crossorigin='anonymous'></script>
+    <script src="./js/jquery.drawsvg.js"></script>
+    <script>
+        var path = document.querySelector('#Path_2599');
+        var pathLength = path.getTotalLength();
+
+        path.style.strokeDasharray = pathLength + ' ' + pathLength;
+
+        path.style.strokeDashoffset = pathLength;
+
+        path.getBoundingClientRect();
+
+        window.addEventListener('scroll', function(e) {
+            console.log("scroll")
+            var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+            var drawLength = pathLength * scrollPercentage;
+            path.style.strokeDashoffset = pathLength - drawLength;
+            if(scrollPercentage >= .99){
+                console.log("scroll----")
+                path.style.strokeDasharray = 'none';
+            }else{
+                path.style.strokeDasharray = pathLength + ' ' + pathLength;
+            }
+        })
+
+        // var $doc = $(document),
+        //     $win = $(window),
+        //     $svg = $('svg').drawsvg(),
+        //     max = $doc.height() - $win.height();
+
+        // $win.on('scroll', function () {
+        //     var p = $win.scrollTop() / max;
+        //     $svg.drawsvg('progress', p);
+        // });
+    </script>
+</body>
+
+<!--  -->
+
+
+</html>

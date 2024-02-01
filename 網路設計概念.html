@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #FBF3EE;
+        }
+
+        .picBox {
+            width: 15vw;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            filter: drop-shadow(10px 0px 10px rgb(255, 183, 109));
+        }
+
+        .bg {
+            position: absolute;
+            bottom: -160%;
+            left: 0%;
+            width: 100%;
+            transform: scale(1.1);
+        }
+
+        .page02 {
+            background: linear-gradient(to bottom, rgba(253, 204, 154, 1), rgba(251, 243, 238, 1));
+        }
+
+        /* circle */
+        ul {
+            letter-spacing: normal;
+            padding-left: 0;
+        }
+
+        .circleBox {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .circleBox::before {
+            content: "";
+            position: absolute;
+            top: calc(50% - 328px);
+            right: calc(160px - 500px);
+            width: 686px;
+            height: 670px;
+            /* border-radius: 50%; */
+            /* border: 1px solid #565656; */
+            background-image: url(./images/img/網路材料circle.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        ul.circlePointList {
+            position: relative;
+            right: calc(160px - 530px);
+            width: 580px;
+            height: 600px;
+        }
+
+        ul.circlePointList li {
+            position: absolute;
+            top: calc(50% - 45px);
+            right: 50%;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 90px;
+            padding-left: 28%;
+            color: #efefef;
+            pointer-events: none;
+            transition: all 0.6s ease-in-out;
+            transform-origin: center right;
+            opacity: 0;
+            transform: rotate(-60deg);
+            cursor: auto;
+        }
+
+        ul.circlePointList li .item {
+            transform: rotate(-60deg);
+        }
+
+        ul.circlePointList li.item1,
+        ul.circlePointList li.item2,
+        ul.circlePointList li.item3 {
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        ul.circlePointList li.item0,
+        ul.circlePointList li.item4 {
+            opacity: 1;
+        }
+
+        ul.circlePointList li.item5,
+        ul.circlePointList li.item6 {
+            opacity: 0;
+        }
+
+        ul.circlePointList li.item1 {
+            transform: rotate(-20deg);
+        }
+
+        ul.circlePointList li.item1 .item {
+            transform: rotate(20deg);
+        }
+
+        ul.circlePointList li.item2 {
+            transform: rotate(0);
+        }
+
+        ul.circlePointList li.item2 .item {
+            transform: rotate(0);
+        }
+
+        ul.circlePointList li.item3 {
+            transform: rotate(20deg);
+        }
+
+        ul.circlePointList li.item3 .item {
+            transform: rotate(-20deg);
+        }
+
+        ul.circlePointList li.item4 {
+            transform: rotate(42deg);
+        }
+
+        ul.circlePointList li.item4 .item {
+            transform: rotate(-42deg);
+        }
+
+        ul.circlePointList li.item5 {
+            transform: rotate(60deg);
+        }
+
+        ul.circlePointList li.item5 .item {
+            transform: rotate(-60deg);
+        }
+
+        ul.circlePointList li.item6 {
+            transform: rotate(80deg);
+            transition-duration: 0s;
+        }
+
+        ul.circlePointList li.item6 .item {
+            transform: rotate(-80deg);
+        }
+
+        ul.circlePointList li.item0 {
+            transform: rotate(-42deg);
+        }
+
+        ul.circlePointList li.item0 .item {
+            transform: rotate(42deg);
+        }
+
+        ul.circlePointList li::before {
+            content: "";
+            position: absolute;
+            top: calc(50% - 12px);
+            right: calc(50% - 12px);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+
+        /* ul.circlePointList li::after {
+            content: "";
+            position: absolute;
+            top: calc(50% - 6px);
+            right: calc(50% - 6px);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: #c19f0e;
+            opacity: 0;
+        } */
+
+        ul.circlePointList li.active::before {
+            background-color: transparent;
+        }
+
+        ul.circlePointList li.active::after {
+            opacity: 1;
+        }
+
+        ul.circlePointList li .item {
+            padding-left: 40px;
+            transition: all 0.6s ease-in-out;
+            transform-origin: center left;
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 3.5vw;
+            transition: opacity 1s ease-in-out;
+            /* opacity: 0; */
+        }
+
+        .activeicon {
+            opacity: 0;
+            width: 7.5vw;
+            position: absolute;
+            top: 50%;
+            left: -44%;
+            margin-top: -102%;
+            z-index: 3;
+        }
+
+        ul.circlePointList li.active .item .icon {
+            opacity: 0;
+        }
+
+        ul.circlePointList li.active .item .activeicon {
+            opacity: 1;
+        }
+
+        a.prevBtn,
+        a.nextBtn {
+            position: absolute;
+            right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+            /* background-color: #c19f0e; */
+            cursor: pointer;
+        }
+
+        /* a.prevBtn::before,
+        a.nextBtn::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+        } */
+
+        a.prevBtn {
+            bottom: calc(50% + -30px);
+        }
+
+        a.prevBtn::before {
+            transform: rotate(-135deg);
+        }
+
+        a.nextBtn {
+            top: calc(50% + 10px);
+        }
+
+        a.nextBtn::before {
+            transform: rotate(45deg);
+        }
+
+        .videoBox {
+            width: 30vw;
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            transform: translateX(-50%);
+            border-radius: 25px 25px 0 0;
+            overflow: hidden;
+        }
+
+        .video {
+            position: absolute;
+            top: 0%;
+            left: -1%;
+            width: 100%;
+            height: 34vh;
+            z-index: -1;
+        }
+
+        .videoBox .mask {
+            pointer-events: none;
+        }
+
+        .video video {
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: fill;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page page01">
+        <div class="picBox">
+            <img src="./images/img/網站翻新pic.png" alt="" style="width: 100%;" />
+        </div>
+        <div class="bg">
+            <img src="./images/img/網站翻新bg.svg" alt="" style="width: 100%;" />
+        </div>
+    </section>
+    <section class="page page02">
+        <div class="videoBox">
+            <div class="mask">
+                <img src="./images//img/video_mask.png" alt="" style="width: 100%;" />
+            </div>
+            <div class="video">
+                <video muted playsinline onclick="this.play()" poster="">
+                    <source src="./video/bannerVideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="circleBox">
+            <ul class="circlePointList">
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon01.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon01_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon02.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon02_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon03.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon03_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon04.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon04_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon05.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon05_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon06.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon06_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon07.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon07_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon08.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon08_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon09.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon09_active.svg" alt="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <img class="icon" src="./images/img/icon10.svg" alt="" />
+                        <img class="icon activeicon" src="./images/img/icon10_active.svg" alt="" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a class="prevBtn">
+            <img src="./images/img/next_btn_white.svg" alt="" style="width: 100%;" />
+        </a>
+        <!-- <a class="nextBtn"></a> -->
+    </section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script>
+    $(function () {
+        let tl01 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".page01",
+                pin: true,
+                start: 'top top',
+                scrub: 0.3,
+                markers: true
+            }
+        })
+
+        tl01.to(".bg", {
+            transform: "scale(2)",
+        })
+    })
+
+    $(function () {
+        function circleSlider(start) {
+            let _item = $('.circlePointList li'),
+                _show = 3,
+                _start = start,
+                _size = _item.length;
+
+            _item.removeClass();
+            _item.eq(_start).addClass('active');
+
+            if (_size > _show) {
+
+                //設置 (第 show-1 筆) 的樣式
+                if ((_start - 1) < 0) {
+                    _item.eq((_start - 1)).addClass('item0');
+                } else {
+                    _item.eq((_start - 1)).addClass('item0');
+                }
+
+                //設置 (第 show+3 筆) 的樣式
+                for (i = 0; i < _show; i++) {
+                    if ((_start + _show + i) < _size) {
+                        _item.eq((_start + _show + i)).addClass('item' + (_show + i + 1));
+                    } else {
+                        _item.eq((_start + _show + i - _size)).addClass('item' + (_show + i + 1));
+                    }
+                }
+
+            }
+
+            for (i = 0; i < _show; i++) {
+                j = _start + i;
+                if (j >= _size) {
+                    j %= _size;
+                }
+                _item.eq(j).addClass('item' + (i + 1));
+            }
+        }
+
+        circleSlider(0);
+
+        $('.circlePointList').on('click', 'li', function () {
+            let _id = $('.circlePointList li').index(this);
+            circleSlider(_id);
+        });
+        $('a.nextBtn').on('click', function () {
+            let _id = $('.circlePointList li').index($('.circlePointList li.active')) + 1,
+                _size = $('.circlePointList li').length;
+            _id %= _size;
+            circleSlider(_id);
+        });
+        $('a.prevBtn').on('click', function () {
+            let _id = $('.circlePointList li').index($('.circlePointList li.active')) - 1,
+                _size = $('.circlePointList li').length;
+            _id += _size;
+            _id %= _size;
+            circleSlider(_id);
+        });
+    })
+</script>
+
+</html>

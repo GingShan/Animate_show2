@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'
+        integrity='sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=='
+        crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        p,span{
+            margin: 0;
+            line-height: 150%;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        section {
+            width: 100%;
+            overflow: hidden;
+            background-color: #F7CFA6;
+        }
+
+        section.page{
+            padding-bottom: 5%;
+        }
+
+        .row {
+            width: 100%;
+            align-items: center;
+        }
+
+        .swiper-container {
+            overflow: hidden;
+        }
+
+        .topBlock.row{
+            height: 68vh;
+            justify-content: space-between;
+            align-items: flex-end;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: flex-end;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: -10% !important;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 25%;
+        }
+
+        .swiper-slide {
+            width: 100%;
+        }
+
+        .swiper-slide .innerImg {
+            width: 100%;
+            padding-top: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0;
+            margin-right: 20px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 20%;
+        }
+
+        .swiper-button-next {
+            margin-bottom: 15%;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after{
+            content: '';
+        }
+
+        .swiper-pagination-bullet {
+            position: relative;
+            width: 60px;
+            height: auto;
+            text-align: left;
+            border-radius: 50px;
+            opacity: 1;
+            margin-right: 20px;
+            background-color: transparent;
+        }
+
+        .swiper-pagination-bullet i {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 50px;
+            z-index: 1;
+            width: 100%;
+            height: 9px;
+            background-color: #F1C08E;
+        }
+
+        .swiper-pagination-bullet b {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            width: 0%;
+            height: 10px;
+            border-radius: 50px;
+            background-color: #F39321;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: transparent;
+        }
+
+        .swiper-pagination-bullet-active b {
+            animation-name: countingBar;
+            animation-duration: 3s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes countingBar {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .textArea{
+            padding-right: 5%;
+        }
+
+        .textArea .titleIcon{
+            width: 30%;
+            min-width: 100px;
+            margin-bottom: 7%;
+        }
+
+        .textArea h1.title{
+            font-size: 2rem;
+            font-weight: bolder;
+            color: #86533E;
+            padding-bottom: 5%;
+        }
+
+        .textArea h3.subtitle{
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #86533E;
+        }
+
+        .textArea .content{
+            padding-bottom: 5%;
+            color: #86533E;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0 left">
+                    <div class="topBlock row">
+                        <div class="col-lg-10">
+                            <!-- Slider main container -->
+                            <div class="swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <div class="swiper-slide">
+                                        <div class="innerImg" style="background-image: url(./images/img/網紅-1.png);">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide con2">
+                                        <div class="innerImg" style="background-image: url(./images/img/網紅2.png);">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide con3">
+                                        <div class="innerImg" style="background-image: url(./images/img/網紅3.png);">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide con4">
+                                        <div class="innerImg" style="background-image: url(./images/img/網紅4.png);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <!-- If we need navigation buttons -->
+                            <div class="nextPrevBtn">
+                                <div class="swiper-button-next">
+                                    <img src="./images/img/next_btn02.svg" alt="" style="width: 100%;" />
+                                </div>
+                                <div class="swiper-button-prev">
+                                    <img src="./images/img/prev_btn02.svg" alt="" style="width: 100%;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="textArea">
+                        <div class="titleIcon">
+                            <img src="./images/img/紅人營銷服務.svg" alt="" style="width: 100%;" />
+                        </div>
+                        <h1 class="title">海量KOL資源精準速配</h1>
+                        <h3 class="subtitle">全球千萬YouTube、Instagram、TikTok網紅資源</h3>
+                        <div class="content">
+                            <p>我們合作的網紅覆蓋各行各業，合作模式多樣化滿足廣告主不同的推廣需求</p>
+                        </div>
+                        <h3 class="subtitle">精準匹配找出最合適的網紅人選</h3>
+                        <div class="content">
+                            <p>結合產品特性、品牌基調、受眾群體、深度分析、匹配最佳人選</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.js'
+    integrity='sha512-ipBeSMCnlAvS4AEbycy0nTk9KkYr5lUJwFHNvf4IxtV/CDW4qx53mZKUryWtNr6GFaBl11EXyrU6iE3mo6ib2g=='
+    crossorigin='anonymous'></script>
+<!-- 引入 Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var listArray = ["slide1", "slide2", "slide3", "slide4"];
+    var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        loop: true,
+        autoplayDisableOnInteraction: false,
+        slidesPerView: 2,
+        spaceBetween: 5,
+        centeredSlides: true,
+        autoHeight: true,
+        autoplay: {
+            delay: 3000, //animation과 시간 맞춰줘야함
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: 'true',
+            type: 'bullets',
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' +
+                    '<i></i>' + '<b></b>' + '</span>';
+            },
+
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+    })
+</script>
+
+</html>

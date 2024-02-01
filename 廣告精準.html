@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'
+        integrity='sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=='
+        crossorigin='anonymous' />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        section {
+            background-color: #F7CFA6;
+            overflow: hidden;
+        }
+
+        .page04 {
+            width: 100%;
+            height: 100vh;
+            background-image: url(./images/img/推廣帳號管理_bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page04::before {
+            content: '';
+            width: 43vw;
+            padding-top: 12%;
+            position: absolute;
+            bottom: -3%;
+            right: 6%;
+            background-image: url(./images/img/ACCURATE.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .page04 .titleBox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            position: absolute;
+            top: 4%;
+            right: -2%;
+            width: 17.3vw;
+            height: 92.9vh;
+            background-image: url(./images/img/推廣帳號_plate.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: left;
+            padding-left: 3%;
+            z-index: 3;
+        }
+
+        .page04 .titleBox h1.title {
+            font-size: 2rem;
+            font-weight: bolder;
+            letter-spacing: 2px;
+            line-height: 180%;
+        }
+
+        .page04 .pageBox {
+            width: 64%;
+            margin: 0 auto;
+            margin-right: 11%;
+            z-index: 4;
+        }
+
+        .page04 .pageBox .container-fluid>.row {
+            width: 100%;
+            height: 100vh;
+            justify-content: space-between;
+        }
+
+        .page04 .pageBox .AddBox {
+            width: 10%;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .page04 .pageBox .top {
+            justify-content: space-between;
+            align-items: flex-start;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: flex-start;
+            padding-top: 12.3%;
+        }
+
+        .page04 .pageBox .top .AddBox:nth-child(2) {
+            margin-top: 1.7%;
+        }
+
+        .page04 .pageBox .bottom {
+            justify-content: space-between;
+            align-items: flex-end;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: flex-end;
+            padding-top: 10%;
+        }
+
+        .page04 .pageBox .bottom .AddBox:nth-child(2) {
+            margin-top: -3.2%;
+        }
+
+        .page04 .pageBox .bottom .AddBox:nth-child(3) {
+            margin-top: -1.7%;
+        }
+
+        .page04 .pageBox .top .Boxtop {
+            margin-bottom: 20%;
+        }
+
+        .page04 .pageBox .bottom .Boxtop {
+            margin-top: 20%;
+        }
+
+        .page04 .pageBox .Boxbottom {
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+            border-radius: 100%;
+            border: 1px solid #F39321;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .page04 .pageBox .Boxbottom::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: #F39321;
+            z-index: 2;
+        }
+
+        .page04 .pageBox .Boxbottom::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FBBE7E;
+            z-index: -1;
+        }
+
+        .AddBox:hover .Boxbottom::after {
+            width: 35px;
+            height: 35px;
+        }
+
+        .AddBox .AddTxt {
+            position: absolute;
+            width: 419px;
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
+        }
+
+        .page04 .top .AddBox .AddTxt {
+            padding: 30% 13% 7.8% 13%;
+            background-image: url(./images/img/AddTxt_bg.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page04 .top .AddBox:nth-child(1) .AddTxt {
+            bottom: -50%;
+            left: 15%;
+        }
+
+        .page04 .top .AddBox:nth-child(2) .AddTxt {
+            bottom: -70%;
+            left: 15%;
+        }
+
+        .page04 .top .AddBox:nth-child(3) .AddTxt {
+            padding: 20% 13% 17% 13%;
+            background-image: url(./images/img/AddTxt_bg02.svg);
+            top: -56%;
+            left: 0%;
+        }
+
+
+        .page04 .bottom .AddBox .AddTxt {
+            padding: 20% 13% 17% 13%;
+            background-image: url(./images/img/AddTxt_bg02.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page04 .bottom .AddBox:nth-child(1) .AddTxt {
+            top: -80%;
+            left: 15%;
+        }
+
+        .page04 .bottom .AddBox:nth-child(2) .AddTxt {
+            top: -60%;
+            left: 15%;
+        }
+
+        .page04 .bottom .AddBox:nth-child(3) .AddTxt {
+            padding: 20% 13% 17% 13%;
+            background-image: url(./images/img/AddTxt_bg.svg);
+            bottom: -56%;
+            left: 0%;
+        }
+
+        .AddBox:hover .AddTxt{
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page04">
+        <div class="pageBox">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 top">
+                        <div class="row">
+                            <div class="col-4 AddBox">
+                                <div class="Boxtop">
+                                    <img src="./images/img/關鍵詞定向.svg" alt="" style="width:100%;" />
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="AddTxt">
+                                    <p>​根據關鍵詞投放您的廣告，您的廣告只會與您的關鍵字相關的媒體展示。</p>
+                                </div>
+                            </div>
+                            <div class="col-4 AddBox">
+                                <div class="Boxtop">
+                                    <img src="./images/img/國家定向.svg" alt="" style="width:100%;" />
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="AddTxt">
+                                    <p>定位您的目標國家和地區，精確過濾受眾，從而提高投資回報率。</p>
+                                </div>
+                            </div>
+                            <div class="col-4 AddBox">
+                                <div class="Boxtop">
+                                    <img src="./images/img/設備定向.svg" alt="" style="width:100%;" />
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="AddTxt">
+                                    <p>投放到各種設備當中，包括Android / iOS / PC / VR 設備 / 網絡電視中。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 bottom">
+                        <div class="row">
+                            <div class="col-4 AddBox">
+                                <div class="AddTxt">
+                                    <p>從制定特定訪問者和排除列表，將您的廣告推送至特定用戶。</p>
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="Boxtop">
+                                    <img src="./images/img/瀏覽器定向.svg" alt="" style="width:100%;" />
+                                </div>
+                            </div>
+                            <div class="col-4 AddBox">
+                                <div class="AddTxt">
+                                    <p>選擇您的指定投放時段，可指定一天之中或一週之中特定的天數。</p>
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="Boxtop">
+                                    <img src="./images/img/時間定向.svg" alt="" style="width:100%;" />
+                                </div>
+                            </div>
+                            <div class="col-4 AddBox">
+                                <div class="AddTxt">
+                                    <p>只將廣告展示到您的產品或服務展示到對您產品、服務感興趣的用戶。</p>
+                                </div>
+                                <div class="Boxbottom"></div>
+                                <div class="Boxtop">
+                                    <img src="./images/img/興趣類別.svg" alt="" style="width:100%;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="titleBox">
+            <h1 class="title">
+                廣告
+                <br />投放
+            </h1>
+        </div>
+    </section>
+</body>
+
+</html>

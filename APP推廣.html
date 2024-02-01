@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        p,
+        span {
+            display: block;
+            font-size: 1rem;
+            margin: 0;
+            letter-spacing: 1px;
+            line-height: 200%;
+        }
+
+        section.page {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #F7CFA6;
+        }
+
+        .layer {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .layer01 {
+            z-index: 1;
+        }
+
+        .layer01 .txtArea {
+            width: 15vw;
+            position: absolute;
+            top: 50%;
+            left: 56%;
+            transform: translateY(-50%);
+        }
+
+        .layer01 .title {
+            width: 100%;
+            margin-bottom: 10%;
+        }
+
+        .layer01 .content {
+            padding-left: 3%;
+        }
+
+        .layer01 .plate {
+            position: absolute;
+            bottom: -1%;
+            right: -20%;
+            width: 5vw;
+            height: 5vh;
+            transform-origin: bottom right;
+            transform: scale(0);
+            z-index: 2;
+        }
+
+        .layer02 {
+            background-color: #F7CFA6;
+        }
+
+        .layer02 .txtArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            width: 25vw;
+            height: 50vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: top right;
+            transform: translate(-50%, -50%);
+            background-image: url(./images/img/APP推廣_layer02_plate.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+        }
+
+        .layer02 .txtArea .title {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .layer03 {
+            background-color: #F7CFA6;
+        }
+
+        .layer03 .txtArea {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 18vw;
+            position: absolute;
+            top: 35%;
+            left: 5%;
+            transform: translateY(-50%);
+        }
+
+        .txtarea02 {
+            opacity: 0;
+        }
+
+        .layer03 .title {
+            width: 100%;
+            margin-bottom: 10%;
+        }
+
+        .layer03 .content {
+            opacity: 0;
+        }
+
+        .layer03 .txtarea .content {
+            opacity: 0;
+        }
+
+        .layer03 .plate {
+            position: absolute;
+            width: 70vw;
+            top: 60%;
+            right: 4%;
+            transform: translateY(-50%);
+        }
+
+        .layer03 .plate .plate01 {
+            width: 15vw;
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .layer03 .plate .plate02 {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 27%;
+            border-radius: 50%;
+            border: 3px solid #FFB76D;
+        }
+
+        .layer03 .plate .plate02 .plate02-2 {
+            width: 85%;
+            position: absolute;
+            top: 50%;
+            left: 47%;
+            transform-origin: center center;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .layer03 .plate .plate02 .plate02-3 {
+            display: none;
+            width: 100%;
+            position: absolute;
+            top: 21%;
+            left: 17%;
+            transform-origin: center center;
+            transform: translate(-50%, -50%) scale(2);
+        }
+
+        .layer04 {
+            background-color: #F7CFA6;
+        }
+
+        .layer04 .plate {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0%;
+            transform: translateY(-50%);
+        }
+
+        .layer04 .plate .plate02 {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 20%;
+            border-radius: 50%;
+            border: 3px solid #FFB76D;
+        }
+
+        .layer04 .plate .icon {
+            position: absolute;
+            width: 350px;
+        }
+
+        .layer04 .plate .icon01 {
+            top: -80%;
+            left: 30%;
+        }
+
+        .layer04 .plate .icon02 {
+            top: -80%;
+            left: 50%;
+        }
+
+        .layer04 .plate .icon03 {
+            bottom: -80%;
+            left: 30%;
+        }
+
+        .layer04 .plate .icon04 {
+            bottom: -80%;
+            left: 50%;
+        }
+
+        .layer05 {
+            background-position: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="banner">
+        <div class="layer layer05" style="background-image:url(./images/img/APP推廣_layer05_bg.jpg);"></div>
+
+        <div class="layer layer04">
+            <div class="plate">
+                <div class="plate02">
+                    <div class="plate02-2">
+                    </div>
+                </div>
+                <div class="icon icon01">
+                    <img src="./images/img/APP推廣_layer04_icon01.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="icon icon02">
+                    <img src="./images/img/APP推廣_layer04_icon02.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="icon icon03">
+                    <img src="./images/img/APP推廣_layer04_icon03.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="icon icon04">
+                    <img src="./images/img/APP推廣_layer04_icon04.svg" alt="" style="width: 100%;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="layer layer03">
+            <div class="txtArea txtarea01">
+                <div class="title">
+                    <img src="./images/img/APP推廣_layer03_title.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="content">
+                    <p>
+                        我們支持CPC / CPI / CPA / CPS等不同廣
+                        <br />告計費形式，配合第三方追蹤方式並確保
+                        <br />優質成效，迎合您的不同階段業務需求。
+                    </p>
+                </div>
+            </div>
+            <div class="txtArea txtarea02">
+                <div class="title">
+                    <img src="./images/img/APP推廣_layer03_title02.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="content">
+                    <p>
+                        我們可以把您的資告投放到全球240個國家及地區，基本覆蓋了本地主流媒體及網站廣告資源，東南亞、印尼、中東等地區。
+                    </p>
+                </div>
+            </div>
+            <div class="plate">
+                <div class="plate01">
+                    <img src="./images/img/APP推廣_layer02_plate.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="plate02">
+                    <div class="plate02-2">
+                        <img src="./images/img/APP推廣_layer03_plate02-2.svg" alt="" style="width: 100%;" />
+                    </div>
+                    <div class="plate02-3">
+                        <img src="./images/img/APP推廣_layer03_plate02-3.svg" alt="" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer layer02">
+            <div class="txtArea">
+                <div class="title">
+                    <img src="./images/img/APP推廣_layer02_title.svg" alt="" style="width: 100%;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="layer layer01" style="background-image: url(./images/img/APP推廣_layer01_bg.png);">
+            <div class="txtArea">
+                <div class="title">
+                    <img src="./images/img/APP推廣_layer01_title.svg" alt="" style="width: 100%;" />
+                </div>
+                <div class="content">
+                    <p>
+                        對接全球開發者流量資源
+                        <br />支持接入多種類APP的聯運
+                    </p>
+                </div>
+            </div>
+            <div class="plate">
+                <img src="./images/img/APP推廣_layer01_plate.svg" alt="" style="width: 100%;" />
+            </div>
+        </div>
+    </section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+    <section class="page"></section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script>
+    $(function () {
+        let tl01 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".banner",
+                pin: true,
+                start: 'top top',
+                scrub: 0.3,
+                markers: true
+            }
+        })
+        tl01.to(".layer01 .plate", {
+                duration: 7,
+                scale: 15,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer01", {
+                duration: 7,
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer02", {
+                duration: 7,
+                "z-index": "1",
+                ease: "power1.inOut"
+            })
+
+            
+
+            .to(".layer02 .txtArea", {
+                duration: 10,
+                opacity: 1,
+                ease: "power1.inOut"
+            }, "+=.3")
+
+            
+
+            .to(".layer02 .txtArea .title", {
+                duration: 10,
+                opacity: 0,
+                ease: "power1.inOut"
+            }, "+=.3")
+
+
+
+            .to(".layer02 .txtArea", {
+                duration: 7,
+                scale: "0",
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer02", {
+                duration: 7,
+                "z-index": "-10",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03", {
+                duration: 7,
+                "z-index": "1",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .txtarea01 .content", {
+                duration: 7,
+                opacity: 1,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02-2", {
+                duration: 7,
+                transform: "translate(-50%, -50%) scale(2)",
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02", {
+                duration: 7,
+                width: "14%",
+                "padding-top": "40%",
+                "margin-top": "-16%",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .txtArea", {
+                duration: 7,
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02", {
+                duration: 7,
+                rotate: "270deg",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .txtarea02", {
+                duration: 7,
+                opacity: 1,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02", {
+                duration: 7,
+                rotate: "0deg",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02", {
+                duration: 7,
+                delay: 2,
+                width: "38%",
+                "padding-top": "37%",
+                "margin-top": "-14%",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .txtarea02 .content", {
+                duration: 7,
+                delay: 2,
+                opacity: 1,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02-3", {
+                duration: 7,
+                display: "block",
+                transform: "translate(-50%, -50%) scale(1.16)",
+                opacity: 1,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02-3", {
+                duration: 7,
+                delay: 3,
+                transform: "translate(-50%, -50%) scale(2)",
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate", {
+                duration: 7,
+                width: "100%",
+                top: "60%",
+                right: "0%",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate01", {
+                duration: 7,
+                display: "none",
+                opacity: "0",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .plate .plate02", {
+                duration: 7,
+                width: "100%",
+                "padding-top": "20%",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03 .txtArea", {
+                duration: 7,
+                opacity: 0,
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer03", {
+                duration: 1,
+                "z-index": "-10",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer04", {
+                duration: 1,
+                "z-index": "1",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer04 .plate .plate02", {
+                duration: 1,
+                width: "75%",
+                "padding-top": "15%",
+                ease: "power1.inOut"
+            })
+
+
+
+            .to(".layer04", {
+                duration: 10,
+                opacity: 0,
+                "z-index": "-10",
+                ease: "power1.inOut"
+            })
+
+            .stagger(3, {
+                // Options for stagger
+                start: "3", // Delay before the first animation starts
+                each: 10 // Delay between each animation
+            })
+
+            .to(".layer05", {
+                duration: 1,
+                delay: 720,
+                "z-index": "1",
+                ease: "power1.inOut"
+            })
+
+
+    })
+</script>
+
+</html>

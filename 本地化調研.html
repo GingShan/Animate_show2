@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        p,
+        span {
+            display: block;
+            margin: 0;
+            line-height: 180%;
+            text-align: justify;
+        }
+
+        section {
+            width: 100%;
+        }
+
+        .page02{
+            overflow: hidden;
+        }
+
+        .page02 .pageBox .row {
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+        }
+
+        .circlieArea {
+            width: 100%;
+            height: 65vh;
+        }
+
+        .circle {
+            width: 353px;
+            height: 353px;
+            border-radius: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            background-color: rgba(239, 167, 89, .7);
+            position: absolute;
+            transition: all .5s;
+        }
+
+        .circle01 {
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .circle02 {
+            bottom: -15%;
+            left: -15%;
+        }
+
+        .circle03 {
+            bottom: -15%;
+            right: -15%;
+        }
+
+        .swiperBox {
+            width: 50%;
+        }
+
+        .page03 {
+            height: 100vh;
+        }
+
+        .page03 .innerImg {
+            width: 100%;
+            padding-top: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page03 .swiper-wrapper {
+            transition-timing-function: linear !important;
+            -webkit-transition-timing-function: linear !important;
+        }
+
+        .page03 .swiper-slide {
+            cursor: pointer;
+        }
+
+        .page04 {
+            height: 100vh;
+            background-color: #FBF3EE;
+            padding: 10% 0%;
+        }
+
+        .page04 .pageBlock{
+            width: 75.7%;
+        }
+
+        .page04 .pageBlock .row{
+            justify-content: flex-start;
+        }
+
+        .page04 .cardArea {
+            /* padding-top: 30%; */
+        }
+
+        .page04 .cardBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            height: 45vh;
+            /* border: 1px solid red; */
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all .5s ease-in-out;
+        }
+
+        .page04 .cardBox .cardBox-bg{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            padding-top: 105%;
+            border: 1px solid #F39321;
+            border-radius: 50px;
+            box-shadow: 12px 13px 21px rgba(239, 167, 89, .6);
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            transform-origin: top center;
+            transition: transform .5s ease-in-out;
+            z-index: 0;
+        }
+
+        .page04 .cardBox .cardBox-bg::before {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        }
+
+        .page04 .cardIcon {
+            width: 5vw;
+            position: absolute;
+            top: -14%;
+            left: 50%;
+            transform-origin: 50px left;
+            transform: translateX(-50%) rotate(0deg);
+            z-index: 3;
+            transition: all .5s ease-in-out;
+        }
+
+        .page04 .cardBox .content {
+            padding: 5% 10%;
+            z-index: 2;
+        }
+
+        .page04 .cardBox .title {
+            font-size: 22px;
+            z-index: 2;
+        }
+
+        .page04 .cardBox .title::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: 0%;
+            width: 100%;
+            height: 4px;
+            background-image: url(./images/img/waveLine.svg);
+            background-repeat: repeat-x;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page04 .cardBox .content p {
+            line-height: 200%;
+        }
+
+        .page04 .cardArea:hover .cardBox .cardBox-bg {
+            transform: scale(1.1);
+        }
+
+        .page04 .cardArea:hover .cardIcon {
+            transform: translateX(-50%) rotate(15deg);
+        }
+
+        .page05 {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .page05 .pageBox {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .page05 .pageBox .topArea.row, .page05 .pageBox .bottomArea.row {
+            height: auto;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .page05 .pageBox .topArea{
+            margin-bottom: 10%;
+        }
+
+        .page05 .pageBox .cardBox{
+            transform-origin: top left;
+            transform: scale(1);
+            transition: transform .1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .page05 .pageBox .cardBox:hover{
+            transform: scale(1.2);
+            transition: transform .1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page page02">
+        <div class="pageBox">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="circlieArea">
+                            <div class="circle circle01">
+                                <p>01</p>
+                                <p>專業形象設計</p>
+                            </div>
+                            <div class="circle circle02">
+                                <p>02</p>
+                                <p>豐富的行銷方案</p>
+                            </div>
+                            <div class="circle circle03">
+                                <p>03</p>
+                                <p>本地化包裝</p>
+                            </div>
+                        </div>
+                        <div class="textArea">
+                            <div class="title">
+                                <div class="titleEn"></div>
+                                <div class="titleIcon"></div>
+                            </div>
+                            <div class="content">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page page03">
+        <div class="swiperBox">
+            <div class="swiper Myswiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee01.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee02.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee03.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee04.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee05.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee06.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee07.png);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="swiperBox">
+            <div dir="rtl" class="swiper Myswiper02">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee01.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee02.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee03.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee04.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee05.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee06.png);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="innerImg" style="background-image:url(./images/img/marquee07.png);"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+    <section class="page page04">
+        <div class="pageBlock">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="cardArea">
+                            <div class="cardIcon">
+                                <img src="./images/img/cardIcon01.svg" alt="" style="width:100%;" />
+                            </div>
+                            <div class="cardBox" style="">
+                                <h1 class="title">專業形象設計</h1>
+                                <div class="content">
+                                    <p>專業形象設計以及展現產品故事性；傳達給客戶並建立信任之「專屬故事」，為構成網站的靈魂。</p>
+                                </div>
+                                <div class="cardBox-bg" style="background-image:url(./images/img/card01_bg.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cardArea">
+                            <div class="cardIcon">
+                                <img src="./images/img/cardIcon02.svg" alt="" style="width:100%;" />
+                            </div>
+                            <div class="cardBox" style="">
+                                <h1 class="title">專業形象設計</h1>
+                                <div class="content">
+                                    <p>專業形象設計以及展現產品故事性；傳達給客戶並建立信任之「專屬故事」，為構成網站的靈魂。</p>
+                                </div>
+                                <div class="cardBox-bg" style="background-image:url(./images/img/card02_bg.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cardArea">
+                            <div class="cardIcon">
+                                <img src="./images/img/cardIcon03.svg" alt="" style="width:100%;" />
+                            </div>
+                            <div class="cardBox" style="">
+                                <h1 class="title">專業形象設計</h1>
+                                <div class="content">
+                                    <p>專業形象設計以及展現產品故事性；傳達給客戶並建立信任之「專屬故事」，為構成網站的靈魂。</p>
+                                </div>
+                                <div class="cardBox-bg" style="background-image:url(./images/img/card03_bg.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page page05">
+        <div class="pageBox">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 topArea row">
+                        <div class="col-lg-3">
+                            <div class="cardBox">
+                                <img src="./images/img/賀卡01.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="cardBox" style="margin-top:20%;">
+                                <img src="./images/img/賀卡02.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="cardBox" style="margin-top:40%;">
+                                <img src="./images/img/賀卡03.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 bottomArea row">
+                        <div class="col-lg-3">
+                            <div class="cardBox">
+                                <img src="./images/img/賀卡04.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="cardBox" style="margin-top:20%;">
+                                <img src="./images/img/賀卡05.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="cardBox" style="margin-top:40%;">
+                                <img src="./images/img/賀卡06.png" alt="" style="width:100%;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<!-- 引入 Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    $(function () {
+        let tl02 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".page02",
+                pin: true,
+                start: 'top top',
+                scrub: 0.3,
+                markers: true
+            }
+        })
+
+        tl02.to(".circle01", {
+            top: "0%",
+            left: "50%"
+        })
+
+        tl02.to(".circle02", {
+            bottom: "0%",
+            left: "0%"
+        }, "<")
+
+        tl02.to(".circle03", {
+            bottom: "0%",
+            right: "0%"
+        }, "<")
+    })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper('.Myswiper', {
+            // 配置選項...
+            freeMode: true,
+            loop: true, // 是否循環播放
+            speed: 4000,
+            autoplay: {
+                delay: 0, // 自動播放的延遲時間（毫秒）
+            },
+        });
+
+        // 滑鼠進入時暫停Swiper
+        mySwiper.el.addEventListener('mouseenter', function () {
+            mySwiper.autoplay.stop();
+        });
+
+        // 滑鼠離開時啟動Swiper
+        mySwiper.el.addEventListener('mouseleave', function () {
+            mySwiper.autoplay.start();
+        });
+    });
+
+</script>
+
+</html>

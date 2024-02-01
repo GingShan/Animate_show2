@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        #container {
+          position: relative;
+          height: 1000px; /* 设置足够长的高度，确保滚动条可见 */
+        }
+    
+        #object1, #object2 {
+          width: 50px;
+          height: 50px;
+          background-color: blue;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+    
+        #progress-bar {
+          width: 100%;
+          height: 10px;
+          background-color: #ddd;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 999;
+        }
+    
+        #progress {
+          height: 100%;
+          background-color: green;
+          width: 0;
+        }
+      </style>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div id="progress-bar">
+        <div id="progress"></div>
+      </div>
+      
+      <div id="container">
+        <div id="object1"></div>
+        <div id="object2"></div>
+      </div>
+</body>
+<script>
+    $(document).ready(function () {
+      var container = $('#container');
+      var object1 = $('#object1');
+      var object2 = $('#object2');
+      var progress = $('#progress');
+  
+      $(window).scroll(function () {
+        var containerHeight = container.height();
+        var windowHeight = $(window).height();
+        var scrollDistance = $(document).height() - windowHeight;
+        var scrollPercentage = ($(window).scrollTop() / scrollDistance) * 100;
+  
+        // 设置进度条宽度
+        progress.css('width', scrollPercentage + '%');
+  
+        // 计算物体之间的距离
+        var distance = containerHeight - object1.height();
+  
+        // 计算物体的新位置
+        var newPosition = (scrollPercentage / 100) * distance;
+        object1.css('top', newPosition + 'px');
+        object2.css('top', newPosition + 'px');
+      });
+    });
+  </script>
+
+</html>

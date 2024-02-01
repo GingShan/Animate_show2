@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'
+        integrity='sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=='
+        crossorigin='anonymous' />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+            /* border: 1px solid red; */
+        }
+
+        p,
+        span {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 300%;
+            display: block;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .content b,
+        span b {
+            font-size: 1.3rem;
+        }
+
+        .swiper-page {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .swiper-page .container-fluid {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .swiper-page .row {
+            justify-content: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+        }
+
+        .topArea{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2%;
+        }
+
+        .topArea .title{
+            width: 8vw;
+        }
+
+        .linkArea{
+            display: none;
+            width: 26.3%;
+            border-radius: 50px;
+        }
+
+        .web02{
+            width: 33.2%;
+        }
+
+        .web03{
+            width: 28.2%;
+        }
+
+        .linkArea.show{
+            display: block;
+        }
+
+        .weblink .link{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weblink .content{
+            padding: 12px 15px;
+            border-radius: 50px;
+            background-color: #EFA759;
+            color: #6C3625;
+            animation-fill-mode: forwards;
+        }
+
+        .weblink:hover .content{
+            animation-name: textBg;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .weblink .content p{
+            line-height: 100%;
+            letter-spacing: 1px;
+            font-weight: bold;
+            transition: transfrom 5s ease-in-out;
+        }
+
+        .weblink:hover .content p{
+            transform: translateX(8px);
+            transition: transfrom 5s ease-in-out;
+        }
+
+        .weblink .plate{
+            padding: 11px 11px 8px 11px;
+            border-radius: 50px;
+            background-color: #EFA759;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation-fill-mode: forwards;
+        }
+
+        .weblink:hover .plate{
+            animation-name: plateBg;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        
+        .weblink .plate img{
+            width: 21.9px;
+            top: -1px;
+            transition: transfrom 5s ease-in-out;
+        }
+
+        .weblink:hover .plate img{
+            transform: translateX(-8px);
+            transition: transfrom 5s ease-in-out;
+        }
+
+        @keyframes textBg{
+            0%{
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+            100%{
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+        }
+
+        @keyframes plateBg{
+            0%{
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+            100%{
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+
+        .swiper-button-next::after {
+            content: '';
+            background-image: url(./images/img/next_btn.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .swiper-button-prev::after {
+            content: '';
+            background-image: url(./images/img/prev_btn.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper2 {
+            margin-bottom: 3%;
+            filter: drop-shadow(10px 10px 10px rgba(239, 167, 89, .6));
+
+        }
+
+        .mySwiper2 .swiper-slide {
+            border: 1px solid #F39321;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .mySwiper2 .swiper-slide .innerImg {
+            width: 100%;
+            padding-top: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: #ccc;
+        }
+
+        .mySwiper .innerImg {
+            width: 100%;
+            padding-top: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: #ccc;
+        }
+
+        .mySwiper .swiper-slide {
+            border: 2px solid #F39321;
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .mySwiper .swiper-slide::before {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(243, 147, 33, .5);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .mySwiper .swiper-slide-thumb-active::before {
+            background-color: transparent;
+        }
+
+        .contentBox {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contentBox.show {
+            display: flex;
+        }
+
+        .contentBox .icon {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            padding-top: 70%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: background-image .1s;
+        }
+
+        .contentBox .icon .number {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+        }
+
+        .contentBox .content {
+            padding: 0% 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="swiper-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="topArea">
+                        <div class="title">
+                            <img src="./images/img/page_title.svg" alt="" style="width: 100%;" />
+                        </div>
+                        <div class="linkArea web01 show">
+                            <a href="#" class="weblink">
+                                <div class="link">
+                                    <div class="content">
+                                        <p>https://cssco.com.tw/</p>
+                                    </div>
+                                    <div class="plate">
+                                        <img src="./images/img/webLink_plate.svg" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="linkArea web02">
+                            <a href="#" class="weblink">
+                                <div class="link">
+                                    <div class="content">
+                                        <p>https://www.autowebpay.com</p>
+                                    </div>
+                                    <div class="plate">
+                                        <img src="./images/img/webLink_plate.svg" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="linkArea web03">
+                            <a href="#" class="weblink">
+                                <div class="link">
+                                    <div class="content">
+                                        <p>https://www.wpthk.com</p>
+                                    </div>
+                                    <div class="plate">
+                                        <img src="./images/img/webLink_plate.svg" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide slide01">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item01.png);">
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide02">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item02.png);">
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide03">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item03.png);">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item01.png);">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item02.png);">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="innerImg" style="background-image: url(./images/img/swiper_item03.png);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="swiper-content">
+                        <div class="contentBox content01 show">
+                            <div class="icon icon01" style="background-image: url(./images/img/swiper01_icon.png);">
+                                <div class="number">
+                                    <img src="./images/img/swiper_num01.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="content">
+                                <b>客戶：</b>晨碩系統科技股份有限公司
+                                <span><b>類別：</b>企業網站</span>
+                                <span><b>商業：</b>空汙處理及製程排氣系統</span>
+                            </div>
+                        </div>
+                        <div class="contentBox content02">
+                            <div class="icon icon02" style="background-image: url(./images/img/swiper02_icon.png);">
+                                <div class="number">
+                                    <img src="./images/img/swiper_num02.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="content">
+                                <b>客戶：</b>維閃付有限公司
+                                <span><b>類別：</b>企業網站</span>
+                                <span><b>商業：</b>支付網關服務</span>
+                            </div>
+                        </div>
+                        <div class="contentBox content03">
+                            <div class="icon icon03" style="background-image: url(./images/img/swiper03_icon.png);">
+                                <div class="number">
+                                    <img src="./images/img/swiper_num03.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="content">
+                                <b>客戶：</b>維度在線有限公司
+                                <span><b>類別：</b>企業網站</span>
+                                <span><b>商業：</b>創建網路平臺和互聯網服務</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next">
+            <img src="./images/img/next_btn.svg" alt="" />
+        </div>
+        <div class="swiper-button-prev">
+            <img src="./images/img/prev_btn.svg" alt="" />
+        </div>
+    </section>
+
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.js'
+    integrity='sha512-ipBeSMCnlAvS4AEbycy0nTk9KkYr5lUJwFHNvf4IxtV/CDW4qx53mZKUryWtNr6GFaBl11EXyrU6iE3mo6ib2g=='
+    crossorigin='anonymous'></script>
+<!-- 引入 Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 5,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+
+    var swiper2 = new Swiper(".mySwiper2", {
+        effect: "fade",
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+
+    // 监听 swiper 的 slideChange 事件
+    swiper2.on('slideChange', function () {
+        // 获取当前活动滑块的索引
+        var activeIndex = swiper2.activeIndex;
+
+        // 移除所有 .contentBox 的类名
+        removeAllClassNames();
+
+        // 根据索引值为相应的 .contentBox 添加类名
+        addClassNameToContentBox(activeIndex);
+    });
+
+    // 移除所有 .contentBox 的类名的函数
+    function removeAllClassNames() {
+        var contentBoxes = document.querySelectorAll('.contentBox');
+        contentBoxes.forEach(function(box) {
+            box.classList.remove('show'); // 将 'active' 替换为你希望添加的类名
+        });
+
+        var linkArea = document.querySelectorAll('.linkArea');
+        linkArea.forEach(function(box) {
+            box.classList.remove('show'); // 将 'active' 替换为你希望添加的类名
+        });
+    }
+
+    // 根据索引值为相应的 .contentBox 添加类名的函数
+    function addClassNameToContentBox(index) {
+        var contentBoxes = document.querySelectorAll('.contentBox');
+        if (contentBoxes.length > index) {
+            contentBoxes[index].classList.add('show'); // 将 'active' 替换为你希望添加的类名
+        }
+
+        var linkArea = document.querySelectorAll('.linkArea');
+        if (linkArea.length > index) {
+            linkArea[index].classList.add('show'); // 将 'active' 替换为你希望添加的类名
+        }
+    }
+
+    // content01
+    $(".content01 .icon").mouseover(() => {
+        $(".icon01").css("background-image", 'url("' + "./images/img/swiper01_icon_change.png" + '")')
+    });
+
+    $(".content01 .icon").mouseout(() => {
+        $(".icon01").css("background-image", 'url("' + "./images/img/swiper01_icon.png" + '")')
+    });
+
+    // content02
+    $(".content02 .icon").mouseover(() => {
+        $(".icon02").css("background-image", 'url("' + "./images/img/swiper02_icon_change.png" + '")')
+    });
+
+    $(".content02 .icon").mouseout(() => {
+        $(".icon02").css("background-image", 'url("' + "./images/img/swiper02_icon.png" + '")')
+    });
+
+    // content03
+    $(".content03 .icon").mouseover(() => {
+        $(".icon03").css("background-image", 'url("' + "./images/img/swiper03_icon_change.png" + '")')
+    });
+
+    $(".content03 .icon").mouseout(() => {
+        $(".icon03").css("background-image", 'url("' + "./images/img/swiper03_icon.png" + '")')
+    });
+</script>
+
+</html>

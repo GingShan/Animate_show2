@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+            /* border: 1px solid red; */
+        }
+
+        .page {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        p,
+        span {
+            margin: 0;
+            font-size: 1rem;
+            display: block;
+        }
+
+        .page01 {
+            background-color: #EFA759;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page01 .pagepic {
+            width: 15vw;
+            z-index: 3;
+        }
+
+        .page01 .pageIcon {
+            width: 20vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center center;
+            transform: scale(1) translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .page02 {
+            background-color: #F7CFA6;
+        }
+
+        .page02 .pic-box {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .page02 .pic-box .progress {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 25%;
+            height: 100%;
+            z-index: 2;
+            background-image: url(./images/img/cat-feet.svg);
+            background-repeat: repeat-x;
+            /* background-size: contain; */
+            background-position: center left;
+            /* transition: width 1s ease-in-out; */
+        }
+
+        .page02 .pic-box .pic_item {
+            width: calc(100% / 4);
+            opacity: .2;
+            transition: all 1s ease-in-out;
+        }
+
+        .page02 .pic-box .pic_item.active {
+            opacity: 1;
+            transition: all 1s ease-in-out;
+        }
+
+        .page02 .pic_item .innerImg {
+            width: 100%;
+            padding-top: 53%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page02 .swiper-Area {
+            width: 100%;
+            position: absolute;
+            bottom: -55%;
+            /* bottom: 0%; */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .page02 .swiper-box {
+            width: 62%;
+            margin: 0 auto;
+            height: 120vh;
+            z-index: 3;
+        }
+
+        .page02 .swiper-box::after {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 65vh;
+            background-image: url(./images/img/slide_bg.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            z-index: -1;
+        }
+
+        .page02 .swiper-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 1s;
+        }
+
+
+        .page02 .swiper {
+            position: absolute;
+            border-radius: 100%;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            /* transition: all s; */
+            text-align: center;
+            background-color: #FFB76D;
+        }
+
+        .swiper:nth-child(1) {
+            top: -100px;
+        }
+
+        .swiper:nth-child(2) {
+            right: -100px;
+        }
+
+        .swiper:nth-child(3) {
+            bottom: -100px;
+        }
+
+        .swiper:nth-child(4) {
+            left: -100px;
+        }
+
+        .swiper .innerImg {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 72%;
+            background-position: 50px 69px;
+        }
+
+        .swiper::before {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 184, 101, .73);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .swiper.active {
+            background-color: #fff;
+        }
+
+        .swiper.active::before {
+            content: '';
+            background-color: transparent;
+        }
+
+        .page02 .pagination-box {
+            position: absolute;
+            top: 60%;
+            right: 3%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .pagination-box a {
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            cursor: pointer;
+            margin: 30% 0%;
+            background-color: rgb(230, 137, 16);
+        }
+
+        .pagination-box a.active {
+            background-color: #000;
+        }
+
+        .pagination-box a.active::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            transform: translate(-50%, -50%);
+            background-image: url(./images/img/btn_plate.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .page02 .swiper-content {
+            width: 100%;
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .page02 .contentBox {
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        /* .content01{
+            display: block;
+        } */
+
+        .contentBox h1.title {
+            color: #FFB76D;
+            font-size: 3.75rem;
+        }
+
+        .contentBox h3.subtitle {
+            padding: 2% 0%;
+            color: #6C3625;
+            font-size: 1.5rem;
+            line-height: 120%;
+        }
+
+        .contentBox .content {
+            line-height: 200%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page page01">
+        <div class="pagepic">
+            <img src="./images/img/page01_pic.svg" alt="" style="width:100%;" />
+        </div>
+        <div class="pageIcon">
+            <img src="./images/img/page01_icon.svg" alt="" style="width:100%;" />
+        </div>
+    </section>
+    <section class="page page02">
+        <div class="pic-box">
+            <div class="progress">
+                <!-- <div class="innerImg"></div> -->
+            </div>
+            <div class="pic_item item01 active">
+                <div class="innerImg" style="background-image: url(./images/img/pic_item01.png);"></div>
+            </div>
+            <div class="pic_item item02">
+                <div class="innerImg" style="background-image: url(./images/img/pic_item02.png);"></div>
+            </div>
+            <div class="pic_item item03">
+                <div class="innerImg" style="background-image: url(./images/img/pic_item03.png);"></div>
+            </div>
+            <div class="pic_item item04">
+                <div class="innerImg" style="background-image: url(./images/img/pic_item04.png);"></div>
+            </div>
+        </div>
+        <div class="swiper-Area">
+            <div class="swiper-box">
+                <div class="swiper-container">
+                    <div class="swiper swiper01 active">
+                        <div class="innerImg" style="background-image: url(./images/img/swiper_icon01.svg);"></div>
+                    </div>
+                    <div class="swiper swiper02">
+                        <div class="innerImg" style="background-image: url(./images/img/swiper_icon02.svg);"></div>
+                    </div>
+                    <div class="swiper swiper03">
+                        <div class="innerImg" style="background-image: url(./images/img/swiper_icon03.svg);"></div>
+                    </div>
+                    <div class="swiper swiper04">
+                        <div class="innerImg" style="background-image: url(./images/img/swiper_icon04.svg);"></div>
+                    </div>
+                </div>
+                <div class="swiper-content">
+                    <div class="contentBox content01">
+                        <h1 class="title">step01</h1>
+                        <h3 class="subtitle">
+                            聆聽及交流
+                            <p class="en">Listen & Inquire</p>
+                        </h3>
+                        <p class="content">
+                            -專案目標
+                            <span>-品牌/企業形象</span>
+                            <span>-探索網頁風格及呈現效果</span>
+                            <span>-所須功能</span>
+                        </p>
+                    </div>
+                    <div class="contentBox content02">
+                        <h1 class="title">step02</h1>
+                        <h3 class="subtitle">
+                            專案規劃
+                            <p class="en">Plan</p>
+                        </h3>
+                        <p class="content">
+                            -確定網站架構
+                            <span>-認證及規格確認</span>
+                            <span>-報價及簽約</span>
+                        </p>
+                    </div>
+                    <div class="contentBox content03">
+                        <h1 class="title">step03</h1>
+                        <h3 class="subtitle">
+                            設計及開發
+                            <p class="en">Design & Development</p>
+                        </h3>
+                        <p class="content">
+                            -網頁流程及互動需求
+                            <span>-介面視覺評估及設計</span>
+                            <span>-繪製所需素材</span>
+                            <span>-程式、鏈接及功能開發</span>
+                        </p>
+                    </div>
+                    <div class="contentBox content04">
+                        <h1 class="title">step04</h1>
+                        <h3 class="subtitle">
+                            網路發佈
+                            <p class="en">Online</p>
+                        </h3>
+                        <p class="content">
+                            -使用掃描及測試
+                            <span>-SEO設定</span>
+                            <span>-交接予客戶及使用教學</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination-box">
+            <a href="###" class="bot1 active" data-index="1"></a>
+            <a href="###" class="bot2" data-index="2"></a>
+            <a href="###" class="bot3" data-index="3"></a>
+            <a href="###" class="bot4" data-index="4"></a>
+        </div>
+    </section>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script>
+    $(function () {
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".page01",
+                pin: true,
+                start: 'top top',
+                scrub: 0.3,
+                markers: true
+            }
+        })
+
+        tl.to(".pageIcon", {
+            top: "-5%",
+            scale: 15
+        })
+    });
+
+
+
+
+    // const swiperContainer = document.querySelector(".swiper-container");
+    // const swiperSlide = document.querySelector(".swiper");
+    // const controlBtn = document.querySelectorAll(".pagination-box a");
+
+    // let i = 0,
+    //     j = 1,
+    //     intervalId;
+
+    // const intervalFn = () => {
+    //     intervalId = setInterval(() => {
+    //         swiperContainer.style.rotate = `-${++i * 90}deg`;
+
+    //         document.querySelector(".swiper.active").classList.remove("active");
+    //         const activeSlide = document.querySelector(`.swiper:nth-child(${++j})`);
+    //         activeSlide.classList.add("active");
+
+    //         document.querySelector("a.active").classList.remove("active");
+    //         const activeLink = document.querySelector(`.pagination-box a:nth-child(${j})`);
+    //         activeLink.classList.add("active");
+
+    //         if ($(".bot1").hasClass("active")) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(360deg)`
+    //             });
+    //             $(".contentBox").fadeOut();
+    //             $(".content01").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "25%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item01").addClass("active");
+    //         }
+
+    //         if ($(".bot2").hasClass("active")) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(90deg)`
+    //             });
+    //             $(".contentBox").fadeOut();
+    //             $(".content02").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "50%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item02").addClass("active");
+    //         }
+
+    //         if ($(".bot3").hasClass("active")) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(180deg)`
+    //             });
+    //             $(".contentBox").fadeOut();
+    //             $(".content03").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "75%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item03").addClass("active");
+    //         }
+
+    //         if ($(".bot4").hasClass("active")) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(270deg)`
+    //             });
+    //             $(".contentBox").fadeOut();
+    //             $(".content04").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "100%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item04").addClass("active");
+    //         }
+
+    //         j === 4 && (j = 0);
+    //     }, 2000);
+    // }
+
+    // intervalFn();
+
+    // controlBtn.forEach((control) => {
+    //     control.addEventListener("click", () => {
+    //         clearInterval(intervalId);
+    //         $(".swiper-container")
+    //         swiperContainer.style.rotate = `-${
+    //                 (i - j + Number(control.dataset.index)) * 90
+    //             }deg`;
+
+    //         document.querySelector(".swiper.active").classList.remove("active");
+    //         const activeSlide = document.querySelector(`.swiper:nth-child(${control.dataset.index})`);
+    //         activeSlide.classList.add("active");
+
+    //         document.querySelector("a.active").classList.remove("active");
+    //         control.classList.add("active");
+    //     });
+    // });
+
+    $(".content01").fadeIn();
+    // $(".bot1").click(() => {
+    //     $(".swiper").css({
+    //         transform: `rotate(0deg)`
+    //     });
+    //     $(".pic-box .progress").css({
+    //         width: "25%"
+    //     });
+    //     $(".pic_item").removeClass("active");
+    //     $(".item01").addClass("active");
+    //     $(".contentBox").fadeOut();
+    //     $(".content01").fadeIn(800);
+    // });
+
+    // $(".bot2").click(() => {
+    //     $(".swiper").css({
+    //         transform: `rotate(90deg)`
+    //     });
+    //     $(".pic-box .progress").css({
+    //         width: "50%"
+    //     });
+    //     $(".pic_item").removeClass("active");
+    //     $(".item02").addClass("active");
+    //     $(".contentBox").fadeOut();
+    //     $(".content02").fadeIn(800);
+    // });
+
+    // $(".bot3").click(() => {
+    //     $(".swiper").css({
+    //         transform: `rotate(180deg)`
+    //     });
+    //     $(".pic-box .progress").css({
+    //         width: "75%"
+    //     });
+    //     $(".pic_item").removeClass("active");
+    //     $(".item03").addClass("active");
+    //     $(".contentBox").fadeOut();
+    //     $(".content03").fadeIn(800);
+    // });
+
+    // $(".bot4").click(() => {
+    //     $(".swiper").css({
+    //         transform: `rotate(270deg)`
+    //     });
+    //     $(".pic-box .progress").css({
+    //         width: "100%"
+    //     });
+    //     $(".pic_item").removeClass("active");
+    //     $(".item04").addClass("active");
+    //     $(".contentBox").fadeOut();
+    //     $(".content04").fadeIn(800);
+    // });
+
+
+    // var counter = 0;
+    // var btnCounter = 1;
+    // $(".swiper-Area").bind("mousewheel", function (event) {
+    //     clearInterval(intervalId);
+    //     if (event.originalEvent.wheelDelta > 0) {
+    //         console.log(counter)
+
+    //     } else {
+    //         counter -= 1;
+    //         btnCounter += 1;
+    //         console.log(counter)
+    //         console.log(btnCounter)
+    //         $(".swiper-container").css({
+    //             transform: "rotate(" + counter * 90 + "deg)"
+    //         });
+
+    //         if (counter == 0) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(360deg)`
+    //             });
+    //             $(".swiper").removeClass("active");
+    //             $(".swiper01").addClass("active");
+    //             $(".contentBox").fadeOut();
+    //             $(".content01").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "25%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item01").addClass("active");
+    //             $(".swiper-container").css({
+    //                 transform: "rotate(" + 0 + "deg)"
+    //             });
+    //         }
+
+    //         if (counter == -1) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(90deg)`
+    //             });
+    //             $(".swiper").removeClass("active");
+    //             $(".swiper02").addClass("active");
+    //             $(".contentBox").fadeOut();
+    //             $(".content02").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "50%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item02").addClass("active");
+    //         }
+
+    //         if (counter == -2) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(180deg)`
+    //             });
+    //             $(".swiper").removeClass("active");
+    //             $(".swiper03").addClass("active");
+    //             $(".contentBox").fadeOut();
+    //             $(".content03").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "75%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item03").addClass("active");
+    //         }
+
+    //         if (counter == -3) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(270deg)`
+    //             });
+    //             $(".swiper").removeClass("active");
+    //             $(".swiper04").addClass("active");
+    //             $(".contentBox").fadeOut();
+    //             $(".content04").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "100%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item04").addClass("active");
+    //         }
+
+    //         if (counter == -4) {
+    //             $(".swiper").css({
+    //                 transform: `rotate(360deg)`
+    //             });
+    //             $(".swiper").removeClass("active");
+    //             $(".swiper01").addClass("active");
+    //             $(".contentBox").fadeOut();
+    //             $(".content01").fadeIn(800);
+    //             $(".pic-box .progress").css({
+    //                 width: "25%"
+    //             });
+    //             $(".pic_item").removeClass("active");
+    //             $(".item01").addClass("active");
+    //             $(".swiper-container").css({
+    //                 transform: "rotate(" + 0 + "deg)"
+    //             });
+    //             counter = 0
+    //         }
+
+    //         $(".pagination-box a").removeClass("active");
+    //         const activeBtn = document.querySelector(`.pagination-box a:nth-child(${btnCounter})`);
+    //         $((`.pagination-box a:nth-child(${btnCounter})`)).addClass("active");
+
+    //         if (btnCounter == 4) {
+    //             btnCounter = 0
+    //         }
+    //     }
+
+    //     event.preventDefault();
+    // })
+
+    const swiperContainer = document.querySelector(".swiper-container");
+    const swiperSlide = document.querySelector(".swiper");
+    const controlBtn = document.querySelectorAll(".pagination-box a");
+
+    let i = 0,
+        j = 1,
+        intervalId;
+
+    const intervalFn = () => {
+        intervalId = setInterval(() => {
+            swiperContainer.style.transform = `rotate(${-++i * 90}deg)`;
+
+            document.querySelector(".swiper.active").classList.remove("active");
+            const activeSlide = document.querySelector(`.swiper:nth-child(${++j})`);
+            activeSlide.classList.add("active");
+
+            document.querySelector("a.active").classList.remove("active");
+            const activeLink = document.querySelector(`.pagination-box a:nth-child(${j})`);
+            activeLink.classList.add("active");
+
+            // ... (the rest of your code)
+            if ($(".bot1").hasClass("active")) {
+                $(".swiper").css({
+                    transform: `rotate(360deg)`
+                });
+                $(".contentBox").fadeOut();
+                $(".content01").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "25%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item01").addClass("active");
+            }
+
+            if ($(".bot2").hasClass("active")) {
+                $(".swiper").css({
+                    transform: `rotate(90deg)`
+                });
+                $(".contentBox").fadeOut();
+                $(".content02").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "50%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item02").addClass("active");
+            }
+
+            if ($(".bot3").hasClass("active")) {
+                $(".swiper").css({
+                    transform: `rotate(180deg)`
+                });
+                $(".contentBox").fadeOut();
+                $(".content03").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "75%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item03").addClass("active");
+            }
+
+            if ($(".bot4").hasClass("active")) {
+                $(".swiper").css({
+                    transform: `rotate(270deg)`
+                });
+                $(".contentBox").fadeOut();
+                $(".content04").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "100%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item04").addClass("active");
+            }
+            j === 4 && (j = 0);
+        }, 2000);
+    };
+
+    // intervalFn();
+
+    let counter = 0;
+    let btnCounter = 1;
+    let wheelTimeout;
+
+    $(".swiper-Area").bind("mousewheel", function (event) {
+        clearInterval(intervalId);
+
+        if (event.originalEvent.wheelDelta > 0) {
+            console.log(counter);
+        } else {
+            counter -= 1;
+            btnCounter += 1;
+
+            $(".swiper-container").css({
+                transform: `rotate(${counter * 90}deg)`
+            });
+
+            // ... (rest of your code)
+            if (counter == 0) {
+                $(".swiper").css({
+                    transform: `rotate(360deg)`
+                });
+                $(".swiper").removeClass("active");
+                $(".swiper01").addClass("active");
+                $(".contentBox").fadeOut();
+                $(".content01").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "25%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item01").addClass("active");
+                $(".swiper-container").css({
+                    transform: "rotate(" + 0 + "deg)"
+                });
+            }
+
+            if (counter == -1) {
+                $(".swiper").css({
+                    transform: `rotate(90deg)`
+                });
+                $(".swiper").removeClass("active");
+                $(".swiper02").addClass("active");
+                $(".contentBox").fadeOut();
+                $(".content02").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "50%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item02").addClass("active");
+            }
+
+            if (counter == -2) {
+                $(".swiper").css({
+                    transform: `rotate(180deg)`
+                });
+                $(".swiper").removeClass("active");
+                $(".swiper03").addClass("active");
+                $(".contentBox").fadeOut();
+                $(".content03").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "75%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item03").addClass("active");
+            }
+
+            if (counter == -3) {
+                $(".swiper").css({
+                    transform: `rotate(270deg)`
+                });
+                $(".swiper").removeClass("active");
+                $(".swiper04").addClass("active");
+                $(".contentBox").fadeOut();
+                $(".content04").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "100%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item04").addClass("active");
+            }
+
+            if (counter == -4) {
+                $(".swiper").css({
+                    transform: `rotate(360deg)`
+                });
+                $(".swiper").removeClass("active");
+                $(".swiper01").addClass("active");
+                $(".contentBox").fadeOut();
+                $(".content01").fadeIn(800);
+                $(".pic-box .progress").css({
+                    width: "25%"
+                });
+                $(".pic_item").removeClass("active");
+                $(".item01").addClass("active");
+                $(".swiper-container").css({
+                    transform: "rotate(" + 0 + "deg)"
+                });
+                counter = 0
+            }
+
+            $(".pagination-box a").removeClass("active");
+            const activeBtn = document.querySelector(`.pagination-box a:nth-child(${btnCounter})`);
+            $((`.pagination-box a:nth-child(${btnCounter})`)).addClass("active");
+
+            if (btnCounter == 4) {
+                btnCounter = 0;
+            }
+        }
+
+        event.preventDefault();
+
+        // Set a timeout to restart the interval after handling the mousewheel event
+        clearTimeout(wheelTimeout);
+        wheelTimeout = setTimeout(() => {
+            intervalFn();
+        }, 500);
+    });
+</script>
+
+</html>
