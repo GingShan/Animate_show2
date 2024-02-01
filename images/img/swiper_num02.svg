@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155.904" height="109.226" viewBox="0 0 155.904 109.226">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_584" data-name="Rectangle 584" width="4.905" height="62.116" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2162" data-name="Group 2162" transform="translate(-209.757 -4339.851)">
+    <g id="Group_2152" data-name="Group 2152" transform="matrix(0.998, -0.07, 0.07, 0.998, -4344.679, 1565.997)">
+      <g id="Group_2101" data-name="Group 2101" transform="matrix(-0.669, 0.743, -0.743, -0.669, 4394.339, 3193.528)">
+        <g id="Mask_Group_2100" data-name="Mask Group 2100" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <path id="Path_2922" data-name="Path 2922" d="M3.47,60.682C3.47,57.648,0,57.648,0,54.614s3.47-3.034,3.47-6.068S0,45.513,0,42.479s3.47-3.034,3.47-6.067S0,33.378,0,30.344s3.47-3.034,3.47-6.068S0,21.241,0,18.207s3.47-3.034,3.47-6.068S0,9.1,0,6.07,3.47,3.036,3.47,0" transform="translate(0.717 0.717)" fill="none" stroke="#e88d62" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_2102" data-name="Group 2102" transform="matrix(-0.996, 0.087, -0.087, -0.996, 4501.091, 3156.875)">
+        <g id="Group_2100" data-name="Group 2100" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <path id="Path_2922-2" data-name="Path 2922" d="M3.47,60.682C3.47,57.648,0,57.648,0,54.614s3.47-3.034,3.47-6.068S0,45.513,0,42.479s3.47-3.034,3.47-6.067S0,33.378,0,30.344s3.47-3.034,3.47-6.068S0,21.241,0,18.207s3.47-3.034,3.47-6.068S0,9.1,0,6.07,3.47,3.036,3.47,0" transform="translate(0.717 0.717)" fill="none" stroke="#e88d62" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+    <text id="SERVICE_02" data-name="SERVICE  02" transform="matrix(0.891, -0.454, 0.454, 0.891, 236.18, 4400.366)" fill="#f39321" stroke="#f39321" stroke-width="1" font-size="20" font-family="Impact" letter-spacing="0.02em"><tspan x="0.714" y="30">SERVICE</tspan><tspan y="30" xml:space="preserve" font-size="28">  </tspan><tspan y="30" font-size="30">02</tspan></text>
+  </g>
+</svg>
